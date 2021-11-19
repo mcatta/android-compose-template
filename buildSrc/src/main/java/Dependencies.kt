@@ -35,6 +35,14 @@ object AndroidXLibs {
     const val CORE = "androidx.core:core-ktx:1.7.0"
 }
 
+object AndroidXTestLibs {
+    const val JUNIT = "androidx.test.ext:junit:1.1.3"
+}
+
+object TestLibs {
+    const val JUNIT = "junit:junit:4.13.2"
+}
+
 object AndroidLibs {
     const val MATERIAL = "com.google.android.material:material:1.4.0"
 }

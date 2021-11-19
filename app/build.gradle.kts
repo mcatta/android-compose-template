@@ -59,11 +59,12 @@ dependencies {
     implementation(ComposeLibs.UI)
     implementation(ComposeLibs.MATERIAL)
     implementation(ComposeLibs.TOOLING_PREVIEW)
+    implementation(ComposeLibs.NAVIGATION)
+    implementation(ComposeLibs.HILT_NAVIGATION)
     implementation(ComposeLibs.ACTIVITY)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    testImplementation(TestLibs.JUNIT)
+    androidTestImplementation(AndroidXTestLibs.JUNIT)
     androidTestImplementation(ComposeLibs.UI_TEST)
 
     implementation(HiltLibs.ANDROID)
