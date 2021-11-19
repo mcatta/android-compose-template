@@ -1,4 +1,6 @@
 # Android Compose Template
+[![Android CI](https://github.com/mcatta/android-compose-template/actions/workflows/ci.yml/badge.svg)](https://github.com/mcatta/android-compose-template/actions/workflows/ci.yml)
+
 A template for Android application written with Jetpack Compose
 
 ### Supports
