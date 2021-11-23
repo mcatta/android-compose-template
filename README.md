@@ -19,4 +19,4 @@ Status | Feature
 Every contributors are welcome. We are using [this convention](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ### License
-Licensed under [!Apache 2.0](https://github.com/mcatta/android-compose-template/blob/main/LICENSE).
+Licensed under [Apache 2.0](https://github.com/mcatta/android-compose-template/blob/main/LICENSE).
