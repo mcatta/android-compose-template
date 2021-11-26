@@ -11,7 +11,7 @@ Status | Feature
 :white_check_mark: | Jetpack Navigation for Compose for routing/navigation |
 :white_check_mark: | Dagger Hilt for DI |
 :heavy_check_mark: | Improve navigation controller |
-:heavy_check_mark: | Provide a sample UI |
+:white_check_mark: | Provide a sample UI |
 :heavy_check_mark: | Documentation |
 
 ### Contributions

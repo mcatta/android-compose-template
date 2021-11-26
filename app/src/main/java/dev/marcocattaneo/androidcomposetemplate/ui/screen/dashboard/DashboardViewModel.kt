@@ -14,36 +14,22 @@
  * limitations under the License.
  */
 
-package dev.marcocattaneo.androidcomposetemplate.ui.screen.login
+package dev.marcocattaneo.androidcomposetemplate.ui.screen.dashboard
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.marcocattaneo.androidcomposetemplate.navigation.routing.generatePath
-import dev.marcocattaneo.androidcomposetemplate.ui.screen.Routes
 import dev.marcocattaneo.androidcomposetemplate.ui.screen.common.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class DashboardViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
-) : BaseViewModel() {
+): BaseViewModel() {
 
-    private val mUsernameState = MutableStateFlow("")
+    private val mUsernameState = MutableStateFlow(savedStateHandle.get<String>("username") ?: "")
     val usernameState: StateFlow<String>
         get() = mUsernameState
-
-    fun onChangeUsername(username: String) {
-        mUsernameState.value = username
-    }
-
-    fun onClickLogin() = viewModelScope.launch {
-        navigateTo(Routes.Dashboard.generatePath(
-            "username" to usernameState.value
-        ))
-    }
 
 }

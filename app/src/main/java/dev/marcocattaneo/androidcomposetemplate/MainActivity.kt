@@ -27,6 +27,8 @@ import dev.marcocattaneo.androidcomposetemplate.navigation.NavigationComponent
 import dev.marcocattaneo.androidcomposetemplate.navigation.NavigationControllerImpl
 import dev.marcocattaneo.androidcomposetemplate.navigation.composable
 import dev.marcocattaneo.androidcomposetemplate.ui.screen.Routes
+import dev.marcocattaneo.androidcomposetemplate.ui.screen.dashboard.DashboardScreen
+import dev.marcocattaneo.androidcomposetemplate.ui.screen.dashboard.DashboardViewModel
 import dev.marcocattaneo.androidcomposetemplate.ui.screen.login.LoginScreen
 import dev.marcocattaneo.androidcomposetemplate.ui.screen.login.LoginViewModel
 import dev.marcocattaneo.androidcomposetemplate.ui.theme.AndroidcomposetemplateTheme
@@ -41,15 +43,22 @@ class MainActivity : ComponentActivity() {
             AndroidcomposetemplateTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     NavigationComponent(
-                        startRoute = Routes.LoginRoute,
+                        startRoute = Routes.Login,
                         navigationController = controller
                     ) {
 
                         composable<LoginViewModel>(
-                            route = Routes.LoginRoute,
+                            route = Routes.Login,
                             navigationController = controller
                         ) { _, vm ->
                             LoginScreen(vm)
+                        }
+
+                        composable<DashboardViewModel>(
+                            route = Routes.Dashboard,
+                            navigationController = controller
+                        ) { _, vm ->
+                            DashboardScreen(vm)
                         }
                     }
                 }
