@@ -32,6 +32,7 @@ object Sdk {
 object ComposeLibs {
     const val UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"
     const val MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE}"
+    const val TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
     const val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE}"
     const val ACTIVITY = "androidx.activity:activity-compose:${Versions.ACTIVITY}"
     const val UI_TEST = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE}"
