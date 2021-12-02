@@ -16,7 +16,6 @@
 
 package dev.marcocattaneo.androidcomposetemplate.ui.screen.login
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.marcocattaneo.androidcomposetemplate.navigation.routing.generatePath
@@ -28,9 +27,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle
-) : BaseViewModel() {
+class LoginViewModel @Inject constructor() : BaseViewModel() {
 
     private val mUsernameState = MutableStateFlow("")
     val usernameState: StateFlow<String>

@@ -26,7 +26,6 @@ class NavigationControllerImpl constructor(
     private val navHostController: NavHostController
 ) : NavigationController {
 
-
     override suspend fun <T : ScreenRoute> navigateTo(
         destinationRoute: NavigableRoute<T>
     ) {
@@ -54,7 +53,7 @@ private fun NavController.safeNavigate(route: String, builder: NavOptionsBuilder
     try {
         this.navigate(route, builder)
     } catch (e: IllegalArgumentException) {
-        //TODO fallback
+        //TODO define your fallback
         e.printStackTrace()
     }
 }

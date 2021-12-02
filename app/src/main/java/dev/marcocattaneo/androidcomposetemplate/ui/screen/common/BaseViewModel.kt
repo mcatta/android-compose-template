@@ -21,7 +21,7 @@ import dev.marcocattaneo.androidcomposetemplate.navigation.NavigationController
 import dev.marcocattaneo.androidcomposetemplate.navigation.routing.NavigableRoute
 import dev.marcocattaneo.androidcomposetemplate.navigation.routing.ScreenRoute
 
-abstract class BaseViewModel: ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
     private var mNavigationController: NavigationController? = null
 
@@ -38,6 +38,7 @@ abstract class BaseViewModel: ViewModel() {
     ) = mNavigationController?.navigateTo(
         destinationRoute = destinationRoute
     )
+        ?: IllegalStateException("NavigationController is not defined, impossible to navigate to ${destinationRoute.path}")
 
     /**
      * Navigate back to the [destinationRoute] with the previous route [parentRoute]
@@ -51,5 +52,6 @@ abstract class BaseViewModel: ViewModel() {
         destinationRoute = destinationRoute,
         parentRoute = parentRoute
     )
+        ?: IllegalStateException("NavigationController is not defined, impossible to navigate to ${destinationRoute.path}")
 
 }
