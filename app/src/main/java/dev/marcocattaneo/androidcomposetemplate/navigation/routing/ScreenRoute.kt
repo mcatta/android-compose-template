@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Marco Cattaneo
+ * Copyright 2022 Marco Cattaneo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 package dev.marcocattaneo.androidcomposetemplate.navigation.routing
 
 import android.net.Uri
-import androidx.navigation.compose.navArgument
+import androidx.navigation.navArgument
 
 /**
  * Screen Route definition

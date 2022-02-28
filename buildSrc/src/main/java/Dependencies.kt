@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Marco Cattaneo
+ * Copyright 2022 Marco Cattaneo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,12 @@
  */
 
 object Versions {
-    const val COMPOSE = "1.0.5"
-    const val COMPOSE_NAVIGATION = "2.4.0-alpha08"
-    const val COMPOSE_HILT_NAVIGATION = "1.0.0-alpha03"
-    const val ACTIVITY = "1.3.1"
-    const val KOTLIN = "1.5.31"
-    const val HILT = "2.40"
+    const val COMPOSE = "1.1.0"
+    const val COMPOSE_NAVIGATION = "2.4.1"
+    const val COMPOSE_HILT_NAVIGATION = "1.0.0"
+    const val ACTIVITY = "1.4.0"
+    const val KOTLIN = "1.6.10"
+    const val HILT = "2.41"
 }
 
 object Sdk {
@@ -61,5 +61,5 @@ object TestLibs {
 }
 
 object AndroidLibs {
-    const val MATERIAL = "com.google.android.material:material:1.4.0"
+    const val MATERIAL = "com.google.android.material:material:1.5.0"
 }
