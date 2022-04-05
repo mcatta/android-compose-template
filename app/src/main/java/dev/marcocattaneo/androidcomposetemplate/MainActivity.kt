@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Marco Cattaneo
+ * Copyright 2022 Marco Cattaneo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,17 +48,15 @@ class MainActivity : ComponentActivity() {
                     ) {
 
                         composable<LoginViewModel>(
-                            route = Routes.Login,
-                            navigationController = controller
+                            route = Routes.Login
                         ) { _, vm ->
-                            LoginScreen(vm)
+                            LoginScreen(vm, controller)
                         }
 
                         composable<DashboardViewModel>(
-                            route = Routes.Dashboard,
-                            navigationController = controller
+                            route = Routes.Dashboard
                         ) { _, vm ->
-                            DashboardScreen(vm)
+                            DashboardScreen(vm, controller)
                         }
                     }
                 }

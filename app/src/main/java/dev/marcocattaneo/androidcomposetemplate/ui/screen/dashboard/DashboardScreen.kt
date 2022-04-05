@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Marco Cattaneo
+ * Copyright 2022 Marco Cattaneo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,16 +21,24 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.marcocattaneo.androidcomposetemplate.navigation.NavigationController
 
 @Composable
 fun DashboardScreen(
-    dashboardViewModel: DashboardViewModel
+    dashboardViewModel: DashboardViewModel,
+    controller: NavigationController
 ){
     val username by dashboardViewModel.usernameState.collectAsState()
+    val navState by dashboardViewModel.navigationState.collectAsState()
+
+    LaunchedEffect(navState) {
+        navState?.let { controller.navigateTo(it) }
+    }
 
     Column(
         modifier = Modifier

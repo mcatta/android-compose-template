@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Marco Cattaneo
+ * Copyright 2022 Marco Cattaneo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,20 +17,31 @@
 package dev.marcocattaneo.androidcomposetemplate.ui.screen.login
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dev.marcocattaneo.androidcomposetemplate.navigation.NavigationController
 import dev.marcocattaneo.androidcomposetemplate.ui.theme.AndroidcomposetemplateTheme
 
 @Composable
 fun LoginScreen(
-    loginViewModel: LoginViewModel
+    loginViewModel: LoginViewModel,
+    controller: NavigationController
 ) {
     val username by loginViewModel.usernameState.collectAsState()
+    val navState by loginViewModel.navigationState.collectAsState()
+
+    LaunchedEffect(navState) {
+        navState?.let { controller.navigateTo(it) }
+    }
 
     Column(
         modifier = Modifier

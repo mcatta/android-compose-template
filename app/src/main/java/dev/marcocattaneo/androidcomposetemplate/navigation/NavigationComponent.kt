@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Marco Cattaneo
+ * Copyright 2022 Marco Cattaneo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,12 @@ package dev.marcocattaneo.androidcomposetemplate.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.*
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavGraph
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navigation
 import dev.marcocattaneo.androidcomposetemplate.navigation.routing.ScreenRoute
 import dev.marcocattaneo.androidcomposetemplate.ui.screen.common.BaseViewModel
 
@@ -43,42 +46,19 @@ internal fun NavigationComponent(
 }
 
 /**
- * Provides the ViewModel and attach che navigationController
- * @param parent parent Screen Route
- */
-@Composable
-private inline fun <reified VM : BaseViewModel> provideHiltViewModel(
-    parent: ScreenRoute? = null,
-    navigationController: NavigationController
-): VM {
-    return parent?.let {
-        hiltViewModel(
-            navigationController.getNavController().getBackStackEntry(it)
-        )
-    } ?: hiltViewModel()
-}
-
-/**
  * Wrapper used to add composable starting from a ScreenRouter
  * @param route screen's route
- * @param parentRoute screen's parent route
  * @param content content associated to the route
  */
 internal inline fun <reified VM : BaseViewModel> NavGraphBuilder.composable(
     route: ScreenRoute,
-    parentRoute: ScreenRoute? = null,
-    navigationController: NavigationController,
     crossinline content: @Composable (NavBackStackEntry, VM) -> Unit
 ) {
     this.composable(
         route = route.routeDefinition.getRoutePath(),
         arguments = route.routeDefinition.getNavArguments(),
         content = { navBackStackEntry ->
-            val viewModel: VM = provideHiltViewModel(
-                parent = parentRoute,
-                navigationController = navigationController
-            )
-            viewModel.setNavigationController(navigationController)
+            val viewModel: VM = hiltViewModel()
             content.invoke(
                 navBackStackEntry,
                 viewModel
@@ -105,17 +85,3 @@ internal inline fun NavGraphBuilder.navigation(
     route = route.routeDefinition.getRoutePath(),
     builder = builder
 )
-
-/**
- * Gets the topmost [NavBackStackEntry] for a route.
- *
- * This is always safe to use with [the current destination][route] or
- * [its parent][NavDestination.parent] or grandparent navigation graphs as these
- * destinations are guaranteed to be on the back stack.
- *
- * @param route route of a destination that exists on the back stack
- * @throws IllegalArgumentException if the destination is not on the back stack
- */
-internal fun NavController.getBackStackEntry(route: ScreenRoute): NavBackStackEntry {
-    return this.getBackStackEntry(route.routeDefinition.getRoutePath())
-}

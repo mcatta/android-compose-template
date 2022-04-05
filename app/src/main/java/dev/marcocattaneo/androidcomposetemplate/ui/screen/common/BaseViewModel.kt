@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Marco Cattaneo
+ * Copyright 2022 Marco Cattaneo
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,17 +17,16 @@
 package dev.marcocattaneo.androidcomposetemplate.ui.screen.common
 
 import androidx.lifecycle.ViewModel
-import dev.marcocattaneo.androidcomposetemplate.navigation.NavigationController
 import dev.marcocattaneo.androidcomposetemplate.navigation.routing.NavigableRoute
 import dev.marcocattaneo.androidcomposetemplate.navigation.routing.ScreenRoute
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 abstract class BaseViewModel : ViewModel() {
 
-    private var mNavigationController: NavigationController? = null
-
-    fun setNavigationController(navigationController: NavigationController) {
-        mNavigationController = navigationController
-    }
+    private val mNavigationState: MutableStateFlow<NavigableRoute<*>?> = MutableStateFlow(null)
+    val navigationState: StateFlow<NavigableRoute<*>?>
+        get() = mNavigationState
 
     /**
      * Navigate to the [destinationRoute]
@@ -35,23 +34,20 @@ abstract class BaseViewModel : ViewModel() {
      */
     suspend fun <T : ScreenRoute> navigateTo(
         destinationRoute: NavigableRoute<T>
-    ) = mNavigationController?.navigateTo(
-        destinationRoute = destinationRoute
-    )
-        ?: IllegalStateException("NavigationController is not defined, impossible to navigate to ${destinationRoute.path}")
+    ) = mNavigationState.emit(destinationRoute)
 
     /**
      * Navigate back to the [destinationRoute] with the previous route [parentRoute]
      * @param destinationRoute destination route
      * @param parentRoute previous routes
      */
-    suspend fun <R : ScreenRoute, PR : ScreenRoute> navigateBackTo(
+    /*suspend fun <R : ScreenRoute, PR : ScreenRoute> navigateBackTo(
         destinationRoute: NavigableRoute<R>,
         parentRoute: NavigableRoute<PR>
     ) = mNavigationController?.navigateBackTo(
         destinationRoute = destinationRoute,
         parentRoute = parentRoute
     )
-        ?: IllegalStateException("NavigationController is not defined, impossible to navigate to ${destinationRoute.path}")
+        ?: IllegalStateException("NavigationController is not defined, impossible to navigate to ${destinationRoute.path}")*/
 
 }
