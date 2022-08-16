@@ -15,18 +15,18 @@
  */
 
 object Versions {
-    const val COMPOSE = "1.1.0"
-    const val COMPOSE_NAVIGATION = "2.4.1"
+    const val COMPOSE = "1.2.0"
+    const val COMPOSE_NAVIGATION = "2.5.1"
     const val COMPOSE_HILT_NAVIGATION = "1.0.0"
-    const val ACTIVITY = "1.4.0"
-    const val KOTLIN = "1.6.10"
-    const val HILT = "2.41"
+    const val ACTIVITY = "1.5.0"
+    const val KOTLIN = "1.7.0"
+    const val HILT = "2.42"
 }
 
 object Sdk {
-    const val COMPILE_SDK_VERSION = 31
+    const val COMPILE_SDK_VERSION = 32
     const val MIN_SDK_VERSION = 21
-    const val TARGET_SDK_VERSION = 31
+    const val TARGET_SDK_VERSION = 32
 }
 
 object ComposeLibs {
@@ -61,5 +61,5 @@ object TestLibs {
 }
 
 object AndroidLibs {
-    const val MATERIAL = "com.google.android.material:material:1.5.0"
+    const val MATERIAL = "com.google.android.material:material:1.6.1"
 }
