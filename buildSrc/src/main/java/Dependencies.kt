@@ -41,6 +41,7 @@ object ComposeLibs {
     const val UI_TEST = "androidx.compose.ui:ui-test-junit4"
     const val NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
     const val HILT_NAVIGATION = "androidx.hilt:hilt-navigation-compose:${Versions.COMPOSE_HILT_NAVIGATION}"
+    const val UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest"
 }
 
 object HiltLibs {

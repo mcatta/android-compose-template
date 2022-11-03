@@ -92,6 +92,7 @@ dependencies {
     implementation(HiltLibs.ANDROID)
     kapt(HiltLibs.ANDROID_COMPILER)
 
+    debugImplementation(ComposeLibs.UI_TEST_MANIFEST)
     debugImplementation(ComposeLibs.TOOLING)
     debugImplementation(ComposeLibs.TOOLING_PREVIEW)
 }
