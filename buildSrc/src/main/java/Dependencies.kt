@@ -15,12 +15,14 @@
  */
 
 object Versions {
-    const val COMPOSE = "1.2.0"
-    const val COMPOSE_NAVIGATION = "2.5.1"
+    internal const val COMPOSE_BOM = "2022.10.00"
+    const val COMPOSE = "1.3.2"
+    const val COMPOSE_NAVIGATION = "2.5.3"
     const val COMPOSE_HILT_NAVIGATION = "1.0.0"
-    const val ACTIVITY = "1.5.0"
-    const val KOTLIN = "1.7.0"
-    const val HILT = "2.42"
+    const val ACTIVITY = "1.5.1"
+    const val KOTLIN = "1.7.20"
+    const val AGP = "7.2.2"
+    const val HILT = "2.44"
 }
 
 object Sdk {
@@ -30,12 +32,13 @@ object Sdk {
 }
 
 object ComposeLibs {
-    const val UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"
-    const val MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE}"
-    const val TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
-    const val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE}"
+    const val BOM = "androidx.compose:compose-bom:${Versions.COMPOSE_BOM}"
+    const val UI = "androidx.compose.ui:ui"
+    const val MATERIAL = "androidx.compose.material:material"
+    const val TOOLING = "androidx.compose.ui:ui-tooling"
+    const val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview"
     const val ACTIVITY = "androidx.activity:activity-compose:${Versions.ACTIVITY}"
-    const val UI_TEST = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE}"
+    const val UI_TEST = "androidx.compose.ui:ui-test-junit4"
     const val NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
     const val HILT_NAVIGATION = "androidx.hilt:hilt-navigation-compose:${Versions.COMPOSE_HILT_NAVIGATION}"
 }
