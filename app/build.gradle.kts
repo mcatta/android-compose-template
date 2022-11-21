@@ -75,7 +75,6 @@ dependencies {
         .also(::androidTestImplementation)
 
     implementation(AndroidXLibs.CORE)
-    implementation(AndroidXLibs.APP_COMPACT)
     implementation(AndroidLibs.MATERIAL)
 
     implementation(ComposeLibs.UI)
