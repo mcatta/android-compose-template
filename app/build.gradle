@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 /*
 * Copyright 2021 Marco Cattaneo
 *
@@ -17,10 +15,10 @@
 */
 
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.android.hilt)
-    alias(libs.plugins.kotlin.android)
-    kotlin("kapt")
+    id "kotlin-kapt"
+    alias libs.plugins.android.application
+    alias libs.plugins.android.hilt
+    alias libs.plugins.kotlin.android
 }
 
 android {
@@ -34,14 +32,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
             proguardFile(getDefaultProguardFile("proguard-android-optimize.txt"))
         }
     }
@@ -70,27 +64,27 @@ kapt {
 }
 
 dependencies {
-    val platform = platform(libs.bom.compose)
-    implementation(platform)
-    androidTestImplementation(platform)
+    def platform = platform(libs.bom.compose)
+    implementation platform
+    androidTestImplementation platform
 
-    implementation(libs.androidx.core)
-    implementation(libs.androidx.material)
+    implementation libs.androidx.core
+    implementation libs.androidx.material
 
-    implementation(libs.compose.ui)
-    implementation(libs.compose.material)
-    implementation(libs.compose.preview)
-    implementation(libs.compose.navigation.core)
-    implementation(libs.compose.navigation.hilt)
-    implementation(libs.compose.activity)
+    implementation libs.compose.ui
+    implementation libs.compose.material
+    implementation libs.compose.preview
+    implementation libs.compose.navigation.core
+    implementation libs.compose.navigation.hilt
+    implementation libs.compose.activity
 
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.compose.test.uiJunit4)
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.compose.test.uiJunit4
 
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.androidCompiler)
+    implementation libs.hilt.android
+    kapt libs.hilt.androidCompiler
 
-    debugImplementation(libs.compose.test.uiManifest)
-    debugImplementation(libs.compose.tooling)
-    debugImplementation(libs.compose.preview)
+    debugImplementation libs.compose.test.uiManifest
+    debugImplementation libs.compose.tooling
+    debugImplementation libs.compose.preview
 }
