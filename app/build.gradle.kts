@@ -17,21 +17,21 @@
 */
 
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("dagger.hilt.android.plugin")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.hilt)
+    alias(libs.plugins.kotlin.android)
     kotlin("kapt")
 }
 
 android {
-    compileSdk = Sdk.COMPILE_SDK_VERSION
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = AppConfiguration.APPLICATION_ID
-        minSdk = Sdk.MIN_SDK_VERSION
-        targetSdk = Sdk.TARGET_SDK_VERSION
-        versionCode = AppConfiguration.VERSION_CODE
-        versionName = AppConfiguration.VERSION_NAME
+        applicationId = "dev.marcocattaneo.androidcomposetemplate"
+        minSdk = 21
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -46,17 +46,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.COMPOSE
+        kotlinCompilerExtensionVersion = libs.versions.compose.get()
     }
     packagingOptions {
         resources {
@@ -70,28 +70,27 @@ kapt {
 }
 
 dependencies {
-    platform(ComposeLibs.BOM)
-        .also(::implementation)
-        .also(::androidTestImplementation)
+    val platform = platform(libs.bom.compose)
+    implementation(platform)
+    androidTestImplementation(platform)
 
-    implementation(AndroidXLibs.CORE)
-    implementation(AndroidLibs.MATERIAL)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.material)
 
-    implementation(ComposeLibs.UI)
-    implementation(ComposeLibs.MATERIAL)
-    implementation(ComposeLibs.TOOLING_PREVIEW)
-    implementation(ComposeLibs.NAVIGATION)
-    implementation(ComposeLibs.HILT_NAVIGATION)
-    implementation(ComposeLibs.ACTIVITY)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material)
+    implementation(libs.compose.preview)
+    implementation(libs.compose.navigation.core)
+    implementation(libs.compose.navigation.hilt)
+    implementation(libs.compose.activity)
 
-    testImplementation(TestLibs.JUNIT)
-    androidTestImplementation(AndroidXTestLibs.JUNIT)
-    androidTestImplementation(ComposeLibs.UI_TEST)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.compose.test.uiJunit4)
 
-    implementation(HiltLibs.ANDROID)
-    kapt(HiltLibs.ANDROID_COMPILER)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.androidCompiler)
 
-    debugImplementation(ComposeLibs.UI_TEST_MANIFEST)
-    debugImplementation(ComposeLibs.TOOLING)
-    debugImplementation(ComposeLibs.TOOLING_PREVIEW)
+    debugImplementation(libs.compose.test.uiManifest)
+    debugImplementation(libs.compose.tooling)
+    debugImplementation(libs.compose.preview)
 }
