@@ -23,6 +23,7 @@ plugins {
 
 android {
     compileSdk = 33
+    namespace = "dev.marcocattaneo.androidcomposetemplate"
 
     defaultConfig {
         applicationId = "dev.marcocattaneo.androidcomposetemplate"
