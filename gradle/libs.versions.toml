@@ -14,7 +14,7 @@ bom-compose = { group = "androidx.compose", name = "compose-bom", version.ref = 
 
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "activity" }
 androidx-junit = { module = "androidx.test.ext:junit", version = "1.1.5" }
-androidx-material = { module = "com.google.android.material:material", version = "1.8.0" }
+androidx-material = { module = "com.google.android.material:material", version = "1.9.0" }
 
 compose-activity = { group = "androidx.activity", name = "activity-compose" }
 compose-material = { group = "androidx.compose.material", name = "material" }
