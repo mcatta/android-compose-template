@@ -7,7 +7,7 @@ composeTest = "1.4.3"
 activity = "1.10.1"
 kotlin = "1.8.10"
 hilt = "2.47"
-androidGradlePlugin = "8.1.0"
+androidGradlePlugin = "8.1.1"
 
 [libraries]
 bom-compose = { group = "androidx.compose", name = "compose-bom", version.ref = "bomCompose" }
