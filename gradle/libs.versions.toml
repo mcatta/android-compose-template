@@ -5,7 +5,7 @@ composeNavigation = "2.7.3"
 composeNavigationHilt = "1.0.0"
 composeTest = "1.5.0"
 activity = "1.12.0"
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 hilt = "2.48"
 androidGradlePlugin = "8.1.1"
 
