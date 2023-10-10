@@ -1,6 +1,6 @@
 [versions]
 bomCompose = "2023.10.00"
-compose = "1.5.0"
+compose = "1.5.3"
 composeNavigation = "2.7.4"
 composeNavigationHilt = "1.0.0"
 composeTest = "1.5.3"
