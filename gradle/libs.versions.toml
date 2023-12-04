@@ -1,7 +1,7 @@
 [versions]
 bomCompose = "2023.10.00"
 compose = "1.5.3"
-composeNavigation = "2.7.4"
+composeNavigation = "2.7.5"
 composeNavigationHilt = "1.1.0"
 composeTest = "1.5.3"
 activity = "1.12.0"
