@@ -1,5 +1,5 @@
 [versions]
-bomCompose = "2024.02.01"
+bomCompose = "2024.02.02"
 compose = "1.5.10"
 composeNavigation = "2.7.7"
 composeNavigationHilt = "1.2.0"
